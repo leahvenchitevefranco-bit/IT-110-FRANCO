@@ -1,0 +1,200 @@
+/*SECTION 1: RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*SECTION 2: BASE STYLES (type selectors, colors, fonts)*/
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif; 
+  font-size: 1rem;                            
+  line-height: 1.6;
+  color: #4a1c2b;                             
+  background-color: lavenderblush;            
+  padding: 20px;                            
+}
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  color: #800020;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;               
+}
+
+/*The rule above (h2) and the rule below (.card h2) both target the same <h2> elements
+and set both color. However, the rule below wins because it has higher specificity. 
+.card h2 has 1 class and 1 type while h2 has 1 type only that is why the .card h2 wins.*/
+
+.card h2 {
+  color: rgb(150, 20, 60);            
+}
+
+/*SECTION 3: LAYOUT (header, footer, cards)*/
+
+header,
+footer {
+  text-align: center;                
+}
+
+header {
+  background-color: pink;
+  padding: 24px 16px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+footer {
+  margin-top: 8px;
+  padding: 16px;
+  font-size: 0.9rem;
+  color: #800020;
+}
+
+/*The total width of one .card is 500px and it already includes the padding and border.
+Calculation: 
+500px + (24px x 2) + (2px x 2)
+    = 500px + 48px + 4px
+    = 552px (so the card is exactly 500px wide)*/
+
+.card {
+  width: 500px;
+  max-width: 100%;
+  padding: 24px;
+  border: 2px solid #800020;          
+  border-radius: 14px;
+  margin: 0 auto;                     
+  margin-bottom: 24px;                
+  background-color: white;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(128, 0, 32, 0.15);  
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 0.75em;
+}
+
+.intro {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.intro::first-letter {
+  font-size: 1.6em;
+  color: #800020;
+}
+
+#about {
+  position: relative;
+  border-color: pink;
+  border-width: 4px;
+  background-color: #fff0f5;
+}
+
+/*SECTION 4: COMPONENTS (nav links, skills,visibility,scroll)*/
+
+nav a {
+  display: inline-block;
+  padding: 8px 18px;
+  margin: 12px 4px 0;
+  color: white;
+  background-color: #800020;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+nav a:hover {
+  background-color: white;
+  color: #800020;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+.skills-list > li {
+  padding: 4px 14px;
+  font-size: 0.9rem;
+  color: #800020;
+  background-color: pink;
+  border: 1px solid #800020;
+  border-radius: 999px;
+}
+
+/*Hidden paragraphs in the Notes card*/
+
+.hide-none {
+  display: none;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+/*display: none it removes the paragraph completely, so it takes
+no space and the cards/paragraphs below it move up (no gap).
+
+visibility: hidden it only makes the paragraph invisible. It still
+takes up its space, so an empty gap stays in the Notes card
+between the heading and the visible paragraph.*/
+
+.scroll-box {
+  height: 120px;
+  overflow: auto;
+}
+
+/*REFLECTION ANSWERS:
+
+1. In your own words, why did one of your two conflicting rules win in Part A? (Think specificity and
+order.)
+
+    - The .card h2 rule win in Part A because it is more specific than the h2.
+    It has a class selector and a type selector, while the h2 has only a type 
+    selector. So, that is why the browser uses the color from .card h2. 
+
+
+2.What is the rendered width of one .card if box-sizing were content-box instead of border-box?
+Show your computation.
+
+    - The rendered width of one .card will be 552px width in total if i use the
+    content-box. So, the 500px is only for the content, so the padding and border
+    will be added to it. Here's the computation:
+
+    500px + (24px x 2) + (2px x 2)
+    = 500px + 48px + 4px
+    = 552px (so this is the total width)
+
+
+3. When would you choose visibility: hidden instead of display: none?
+
+    - If I want to hide something but keep its space on the page, I would use
+    visibility: hidden because unlike display: none, it will not remove the 
+    space used by the elements. 
+
+
+
+
+
+
+
+
+
+*/
